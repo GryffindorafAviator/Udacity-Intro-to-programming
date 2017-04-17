@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Flash's Notes</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="p0">
+    <h1 class="title">Project 0 - Important concepts</h1>
+    <div class="t2">
+      <h2>5 Ways of Thinking Programmer Must Do</h2>
+      <div class="t2_tp">
+        <p id="p0_picture1">
+          <img src="https://imgsa.baidu.com/forum/w%3D580/sign=9b710702fe36afc30e0c3f6d8318eb85/7a654a4a20a4462391c9efa09122720e0df3d7bc.jpg" alt="Here suppose to be a picture.">
+        </p>
+          <ul>
+            <li>
+              <em>Editors:</em><br>
+              <a href="https://atom.io/"><em>Atom</em></a>
+              <a href= "https://www.sublimetext.com/"><em>Sublime Link</em></a>
+              <a href= "http://brackets.io/?lang=en"><em>Brackets</em></a>
+            </li>
+            <li>
+              <em>Useful Shortcut Keys</em><br>
+              Command + N / Ctrl + N<br>
+              Command + S / Ctrl + S<br>
+            </li>
+          </ul>
+      </div>
+    </div>
+    <div class="t2">
+      <h2>The basis of the Web</h2>
+      <div class="t2_tp">
+        <p>
+          -	The Web<br>
+          -	HTML<br>
+          -	URLs<br>
+          -	HTTP<br>
+          -	Web Applications<br>
+        </p>
+        <p id="p0_picture2">
+          <img src="https://imgsa.baidu.com/forum/w%3D580/sign=e1ce88c4a6c379317d688621dbc5b784/580d25a4462309f7096ce7d07b0e0cf3d6cad6bc.jpg" alt="Here spuppose to be a picture.">
+        </p>
+      </div>
+    </div>
+    <div class="t2">
+      <h2>Major pieces of Web</h2>
+      <div class="t2_tp">
+        <p>
+          HTTP - Main Protocol of Internet<br>
+          Server - A computer which is used to store composed documents of Web<br>
+          Internet - The world largest computer net<br>
+          Browser - A program run in your computer to display the files in Web<br>
+        </P>
+        <p id="p0_picture3">
+          <img src="https://imgsa.baidu.com/forum/w%3D580/sign=6d08d03170310a55c424defc87444387/37e3432309f79052021c0dfc05f3d7ca7acbd5bc.jpg" alt="Here suppose to be a picture.">
+        </p>
+      </div>
+    </div>
+    <div class="t2">
+      <h2>Summary</h2>
+      <div class="p">
+        <p>
+          World Wide Web<br>
+          World Wide Web is mainly composed by <span class="em"><em>HTML</em></span> documents.
+          HTML is short for Hypertext Markup Language, which is the language <span class="em"><em>browser</em></span> used to parse web page.<br>
+          The web components include <span class="em"><em>client</em></span> (your computer and browser),
+          <span class="em"><em>Internet</em></span> and <span class="em"><em>servers</em></span>. <br>
+        </p>
+      </div>
+    </div>
+    <div class="t2">
+      <h2>Fundamental HTML Elements</h2>
+      <div class="p">
+        <p>
+          <span class="em"><em>HTML Elements</em></span> are used to indicate how browsers display the contents in a web page.<br>
+          Most HTML elements composed with <span class="em"><em>opening tag</em></span>, <span class="em"><em>closing tag</em></span> and the content between them.<br>
+          &lt;<span class="tag"><span class="tag">b</span></span>&gt;text&lt;<span class="tag"><span class="tag">/b</span></span>&gt; bond <b>'text'</b><br>
+          &lt;<span class="tag"><span class="tag">em</span></span>&gt;text&lt;<span class="tag"><span class="tag">/em</span></span>&gt; make <em>'text' italic</em><br>
+        </p>
+      </div>
+    </div>
+    <div class="t2">
+      <h2>Attributes of HTML</h2>
+      <div class="p">
+        <p>
+          Some tags have additional parameters called <span class="em"><em>attribute</em></span>. Attributes provide additional information to browser.<br>
+          For instance, link tag uses attribute <span class="em"><em>herf</em></span> to quote URL.<br>
+        </p>
+        <p>
+          &lt;<span class="tag">a</span> <span class="attribute">href</span>=<span class="attr_value">"url"</span>&gt;link&lt;<span class="tag">/a</span>&gt; creates a hyperlink with the attribute herl = url, the name of the hyperlink is link.<br>
+          &lt;<span class="tag">img</span> <span class="attribute">src</span>=<span class="attr_value">"url" </span><span class="attribute">alt</span>=<span class="attr_value">"text"</span>&gt; displays the image with address src = url (it can also be a local file of your computer),<br>
+          if the image couldn't be shown, the attribute value of alt would be displayed.<br>
+        </p>
+      </div>
+    </div>
+    <div class="t2">
+      <h2>More HTML Elements</h2>
+      <div class="p">
+        <p>
+          &lt;<span class="tag">p</span>&gt;text&lt;<span class="tag">/p</span>&gt; defines a paragraph. The contents of &lt;<span class="tag">p</span>&gt; are all in a box.<br>
+          &lt;<span class="tag">br</span>&gt; is used to break line.<br>
+          &lt;<span class="tag">div</span>&gt;content&lt;<span class="tag">/div</span>&gt; creates a block container element.<br>
+          &lt;<span class="tag">span</span>&gt;content&lt;<span class="tag">/span</span>&gt; creates a inline container element.<br>
+        </p>
+      </div>
+    </div>
+    <div class="t2">
+      <h2>Structure of Document</h2>
+      <div class="p">
+        <p>
+          &lt;<span class="tag">!DOCTYPE HTML</span>&gt;<br>
+          &lt;<span class="tag">html</span>&gt;<br>
+          &nbsp;&nbsp;&nbsp;&lt;<span class="tag">head</span>&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">title</span>&gt;Title!&lt;<span class="tag">/title</span>&gt;<br>
+          &nbsp;&nbsp;&nbsp;&lt;<span class="tag">/head</span>&gt;<br>
+          &nbsp;&nbsp;&nbsp;&lt;<span class="tag">body</span>&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">b</span>&gt;content&lt;<span class="tag">/b</span>&gt;<br>
+          &nbsp;&nbsp;&nbsp;&lt;<span class="tag">/body</span>&gt;<br>
+          &lt;<span class="tag">/html</span>&gt;<br>
+        </p>
+        <div class="pic">
+          <p id="p0_picture4">
+            <img src="https://imgsa.baidu.com/forum/w%3D580/sign=34fd06c30355b3199cf9827d73a88286/51640cf790529822e9307301deca7bcb0b46d4bc.jpg" alt="Here suppose to be a picture."><br>
+          </p>
+          <p id="p0_picture5">
+            <img src="https://imgsa.baidu.com/forum/w%3D580/sign=e50f75a7ba19ebc4c0787691b227cf79/1eb095529822720e90cda83872cb0a46f31fabbc.jpg" alt="Here suppose to be a picture.">
+          </p>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="p1">
+    <h1 class="title">Project 1 - HTML and CSS</h1>
+    <div class="t2">
+      <h2>Structure of HTML file</h2>
+      <div class="p">
+        <p id="p1_picture1">
+          <img src="https://imgsa.baidu.com/forum/w%3D580/sign=802df711346d55fbc5c6762e5d204f40/5c71a9af2edda3ccda6323ef08e93901233f92c5.jpg" alt="Here suppose to be a picture.">
+        </p>
+      </div>
+    </div>
+    <div class="t2">
+      <h2>Understanding of CSS</h2>
+      <div class="p">
+        <p>
+          CSS is short for Cascading Style Sheets.<br>
+          You can have several CSS files that will be referenced in HTML and all of them will be used to find out the final and visible style for your page.<br>
+        </p>
+      </div>
+      <div class="t3">
+        <h3>Search and Replace</h3>
+        <p>
+            You can also think about CSS as a search and replace tool:
+            you identify a class or a tag of the element you want to find (or match, in CSS terminology),
+            and then what you want to do with it, or what property values to replace with different ones.
+        </p>
+      </div>
+      <div class="t3">
+        <h3>Order Matters</h3>
+        <p>
+          It also matters where you define the rules and in what order they are applied.
+          Styles can be defined in different places and are applied in the following order,
+          with definitions further down the list overwriting previous definitions:<br>
+          - the default style of a browser (different browsers have slightly different styles)<br>
+          - stylesheet in a separate file (this is what you will be mostly using)<br>
+          - stylesheet inside HTML (this can be done for small projects but is not ideal)<br>
+          - inline style in an element (this can also be done but should be avoided)<br>
+        </p>
+      </div>
+      <div class="t3">
+        <h3>Specifics Matter</h3>
+        <p>
+          "Cascading" means that rules are applied not only to the elements they directly match,
+          but also to all of those elements' child elements. However, if a child element has multiple,
+          overlapping rules defined for it, the more specific rule takes effect.
+        </p>
+      </div>
+    </div>
+    <div class="t2">
+      <h2>Selector</h2>
+      <div class="p">
+        <p>
+          Selector defines what elements of the page a particular style will apply to.
+          You can select a HTML tag and the rule will apply to all the tags on the page.
+        </p>
+        <b>Example</b>
+        <p>
+          Select elements by tag.<br>
+          <span class="tag">P</span> {<br>
+          }<br>
+        </p>
+        <p>
+          Select elements by class.<br>
+          <span class="tag">.description</span> {<br>
+          }<br>
+        </p>
+        <p>
+          Inside brackets, you write style in the form attribution colon value.
+        </P>
+        <p id="p1_picture2">
+          <img src="https://imgsa.baidu.com/forum/w%3D580/sign=fe5493925cfbb2fb342b581a7f482043/bbe82bdda3cc7cd92aaaaf163001213fba0e91c5.jpg" alt="Here suppose to be a picture.">
+        </p>
+        <p>
+          <a href="https://css-tricks.com/how-css-selectors-work/"><em>Beginner Concepts, How CSS Selectors Work</em></a>
+        </p>
+      </div>
+    </div>
+    <div class="t2">
+      <h2>CSS Summary and Reference</h2>
+      <div class="p">
+        <p>
+          There was a lot of information in the previous video and you don't need to remember it all.
+          This is a text summary.
+          Quickly skim through it (just look at the headings so you know what's here) and come back when you need to.
+        </p>
+      </div>
+      <div class="t3">
+        <h3>What is CSS?</h3>
+        <p>
+          CSS is code written to control the "style" of HTML elements.
+        </p>
+      </div>
+      <div class="t3">
+        <h3>How does CSS "control" HTML?</h3>
+        <p>
+          If you want to write CSS that makes all h1 elements have a black background and white text, you would write:<br>
+          h1{<br>
+          background-color : black;<br>
+          color: white;<br>
+          }<br>
+        </p>
+        <p>
+          In this example, the h1 is a selector.
+          It says to the browser "I want you to apply the rules I'm about to tell you to every h1 element."
+          Everything between these curly braces will be interpreted as a "rule" that should be applied to every h1 element.
+          The line of code that says background-color : black; is a declaration.
+          background-color is a property and blackis the value of that property.
+        </p>
+      </div>
+      <div class="t3">
+        <h3>CSS Vocabulary</h3>
+        <p>
+          <b>CSS: Cascading Style Sheets.</b><br>
+          <b>Style: This word can refer to many things and so it can be confusing. It can refer to:</b><br>
+        </p>
+        <ul>
+            <li>
+              The HTML element, for example:<br>
+              &lt;<span class="tag">style</span>&gt;div {<span class="attribute">color</span>:<span class="attr_value">blue</span>}&lt;<span class="tag">/style</span>&gt;
+            </li>
+            <li>
+              The HTML attribute, for example:<br>
+              &lt;<span class="tag">div style</span>="<span class="attribute">color</span> : <span class="attr_value">blue</span>"&gt;this text would be blue&lt;<span class="tag">/div</span>&gt;
+            </li>
+            <li>
+              The general look of a web page, for example:<br>
+               "<em>I like that site's style.</em>"
+            </li>
+            <li>
+              A verb, for example:<br>
+               "<em>I'm making progress on my page. The structure is all done but now I have to style it.</em>"
+            </li>
+          </ul>
+        <ul>
+            <li>
+              <b>Rule: a line of CSS code describing the value that a certain attribute should take.</b><br>
+            </li>
+            <li>
+              <b>Property: The property you want to change.</b><br>
+            </li>
+            <li>
+              <b>Value: The value that you want to assign to the attribute.</b><br>
+            </li>
+            <li>
+              <b>Selector: The name that you use to in order to target the elements that are assigned to a class or id attribute in the HTML.</b><br>
+            </li>
+            <li>
+              <b>Class: A class refers to a group of elements that can be styled together. Class names should not contain periods or any other punctuation marks such as class="1.1"</b><br>
+            </li>
+            <li>
+              <b>ID: ID's are unique identifiers that uniquely identifies an element in HTML.</b><br>
+            </li>
+          </ul>
+      </div>
+      <div class="t3">
+        <h3>Selecting by class</h3>
+        <p>
+          In the example above, we set the background-color of every h1 to black.
+          If we only want to add style to certain h1s, we can use class selectors.
+          Try copying the following code into a new HTML file in your text editor to see how this works.<br>
+        </p>
+        <p>
+            &lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="attr_value">"stop"</span>&gt;<br>
+            &lt;<span class="tag">/div</span>&gt;<br>
+            &lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="attr_value">"slow"</span>&gt;<br>
+            &lt;<span class="tag">/div</span>&gt;<br>
+            &lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="attr_value">"go"</span>&gt;<br>
+            &lt;<span class="tag">/div</span>&gt;<br>
+            <br>
+            &lt;<span class="tag">style</span>&gt;<br>
+            <span class="attribute">div</span>{<br>
+            &nbsp;&nbsp;height : <span class="attr_value">50px</span>;<br>
+            &nbsp;&nbsp;width : <span class="attr_value">50px</span>;<br>
+            &nbsp;&nbsp;border-radius : <span class="attr_value">25px</span>;<br>
+              }<br>
+            <br>
+            <span class="attribute">.stop</span>{<br>
+            &nbsp;&nbsp;background-color: <span class="attr_value">red</span>;<br>
+              }<br>
+            <br>
+            <span class="attribute">.slow</span>{<br>
+            &nbsp;&nbsp;background-color: <span class="attr_value">yellow</span>;<br>
+            }<br>
+            <br>
+            <span class="attribute">.go</span>{<br>
+            &nbsp;&nbsp;background-color: <span class="attr_value">green</span>;<br>
+            }<br>
+            <br>
+            &lt;<span class="tag">/style</span>&gt;<br>
+            <br>
+        </p>
+        <p>
+          We should see a traffic light. Note how in the &lt;<span class="tag">style</span>&gt; element we refer to an HTML element's class name by writing.class-name.<br>
+          Also note how we can apply rules to all divs or just certain divs by using the appropriate selector.<br>
+        </p>
+      </div>
+      <div class="t3">
+        <h3>How do I include CSS Styling in my web page?</h3>
+        <p>
+          There are three ways you can do this.<br>
+        </p>
+        <p>
+          <b>Method 1: Write CSS in the &lt;<span class="tag">head</span>&gt; of your HTML</b><br>
+        </p>
+        <p>
+            <b>If you want to quickly style an HTML document, you can do the following:</b><br>
+            1.	At the top of your HTML document, add a &lt;<span class="tag">head</span>&gt; element.<br>
+            2.	Inside the &lt;<span class="tag">head</span>&gt; element, add a &lt;<span class="tag">style</span>&gt; element.<br>
+            3.	Write your CSS in the &lt;<span class="tag">style</span>&gt; element and then put the HTML for the rest of your page below.<br>
+        </p>
+        <p>
+            <b>For example:</b><br>
+            &lt;<span class="tag">head</span>&gt;<br>
+            &lt;<span class="tag">style</span>&gt;<br>
+            <span class="tag">div</span>{<br>
+            &nbsp;&nbsp;<span class="attribute">background-color</span> : <span class="attr_value">red</span>;<br>
+                }<br>
+            &lt;<span class="tag">/style</span>&gt;<br>
+            &lt;<span class="tag">/head</span>&gt;<br>
+            &lt;<span class="tag">body</span>&gt;<br>
+            &lt;<span class="tag">div</span>&gt;<br>
+            &nbsp;&nbsp;&nbsp;This will have a red background.<br>
+            &lt;<span class="tag">/div</span>&gt;<br>
+            &lt;<span class="tag">/body</span>&gt;<br>
+        </p>
+        <p>
+          <b>Method 2: Link your HTML to a separate CSS file</b><br>
+        </p>
+        <p>
+            <b>This adds another step, but it lets you stay more organized when working on larger projects. To do this:</b><br>
+            1.	Write all of your structural HTML in one file (let's call it main.html).<br>
+            2.	In a separate file (let's call it main.css), put all of your CSS code.<br>
+            3.	Add a &lt;<span class="tag">head</span>&gt; element to the top of your HTML.<br>
+            4.	Add a &lt;<span class="tag">link</span>&gt; tag inside the &lt;<span class="tag">head</span>&gt; element. Since &lt;<span class="tag">link</span>&gt; is a "void tag" you don't need to add a closing&lt;<span class="tag">/link</span>&gt;.<br>
+            5.	Add the following attributes to your &lt;<span class="tag">link</span>&gt;:<br>
+        </p>
+        <p>
+            &nbsp;&nbsp;1.	<span class="attribute">rel</span>="<span class="attr_value">stylesheet</span>"<br>
+            &nbsp;&nbsp;2.	<span class="attribute">href</span>="<span class="attr_value">main.css</span>"<br>
+        </p>
+        <p>
+            <b>For example, you would have a main.html file that looked like this:</b><br>
+        </p>
+        <p>
+            &lt;<span class="tag">head</span>&gt;<br>
+            &lt;<span class="tag">linkrel="stylesheet"href="main.css"</span>&gt;<br>
+            &lt;<span class="tag">/head</span>&gt;<br>
+            &lt;<span class="tag">body</span>&gt;<br>
+            &lt;<span class="tag">div</span>&gt;<br>
+            &nbsp;&nbsp;&nbsp;This will have a red background.<br>
+            &lt;<span class="tag">/div</span>&gt;<br>
+            &lt;<span class="tag">/body</span>&gt;<br>
+        </p>
+        <p>
+            <b>And</b> <em>in the same folder</em> <b>you would have a file called main.css like this:</b><br>
+        </p>
+        <p>
+            <span class="tag">div</span>{<br>
+            <span class="attribute">background-color</span> : <span class="attr_value">red</span>;<br>
+            }<br>
+        </p>
+        <p>
+          <b>Method 3: Write your style inline with your HTML</b><br>
+        </p>
+        <p>
+            <b>This is generally a very bad idea because it leads to lots of repeated code.
+            But you may see code that uses this method so it's good to be familiar with it.
+            If you want to know more,
+            check out the question and answers in this conversationon Stack Overflow
+            (Stack Overflow is the most widely used programming Q&A community out there).
+            With this method, you modify the style attributes of every individual HTML element. For example:</b><br>
+        </p>
+        <p>
+            &lt;<span class="tag">body</span>&gt;<br>
+            &lt;<span class="tag">div</span> <span class="attribute">style</span>="<span class="attribute">background-color</span>: <span class="attr_value">red</span>; <span class="attribute">color</span>: <span class="attr_value">white</span>"&gt;<br>
+            &nbsp;&nbsp;&nbsp;This div will have a red background and white text.<br>
+            &lt;<span class="tag">/div</span>&gt;<br>
+            &lt;<span class="tag">div</span> <span class="attribute">style</span>="<span class="attribute">background-color</span>: <span class="attr_value">red</span>; <span class="attribute">color</span>: <span class="attr_value">white</span>"&gt;<br>
+            &nbsp;&nbsp;&nbsp;So will this one.<br>
+            &lt;<span class="tag">/div</span>&gt;<br>
+            &lt;<span class="tag">div</span> <span class="attribute">style</span>="<span class="attribute">background-color</span>: <span class="attr_value">red</span>; <span class="attribute">color</span>: <span class="attr_value">white</span>"&gt;<br>
+            &nbsp;&nbsp;&nbsp;Now, what if I change my mind?<br>
+            &lt;<span class="tag">/div</span>&gt;<br>
+            &lt;<span class="tag">div</span> <span class="attribute">style</span>="<span class="attribute">background-color</span>: <span class="attr_value">red</span>; <span class="attribute">color</span>: <span class="attr_value">white</span>"&gt;<br>
+            &nbsp;&nbsp;I'd rather have a black background...<br>
+            &lt;<span class="tag">/div</span>&gt;<br>
+            &lt;<span class="tag">div</span> <span class="attribute">style</span>="<span class="attribute">background-color</span>: <span class="attr_value">red</span>; <span class="attribute">color</span>: <span class="attr_value">white</span>"&gt;<br>
+            &nbsp;&nbsp;Never do this!<br>
+            &lt;<span class="tag">/div</span>&gt;<br>
+            &lt;<span class="tag">/body</span>&gt;<br>
+        </p>
+        <p>
+          <b>NOTE: there are a lot of little mistakes you can and will at some point make that will cause any of these methods not to work.
+          For example, when I was writing the code for method 2 I had main.html and main.css in different folders on my computer,
+          and it didn't work at all.</b><br>
+        </p>
+        <p>
+          <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference"><em>CSS reference</em></a><br>
+          <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font"><em>Font</em></a><br>
+          <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-weight"><em>Font-weight</em></a><br>
+        </p>
+        <p>
+          Searching engines also use heading to index the structure and content of a web page.<br>
+        </p>
+        <p id="p1_picture3">
+          <img src="https://imgsa.baidu.com/forum/w%3D580/sign=95d7fb04bbfb43161a1f7a7210a64642/399aa6cc7cd98d10a95397fe283fb80e79ec90c5.jpg" alt="Here suppose to be a picture.">
+        </p>
+      </div>
+      <div class="t3">
+        <h3>More on Semantic Elements</h3>
+        <p>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Content_sectioning"><em>Content Sectioning</em></a><br>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Sections_and_Outlines_of_an_HTML5_document#The_HTML5_Outline_Algorithm"><em>Sections and Outlines of an HTML5 Document - The HTML5 Outline Algorithm</em></a><br>
+        </p>
+      </div>
+      <div class="t3">
+        <h3>Default Style Rules</h3>
+        <p>
+          <b>Browsers use default stylesheets to determine how to display HTML elements.
+          You can view the default style rules forh1 and other elements for the following browsers:</b><br>
+        </p>
+        <p>
+          <a href="http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css"><em>WebKit (Chrome and Safari)</em></a><br>
+          <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference"><em>Firefox</em></a><br>
+          <a href="http://www.iecss.com/"><em>Internet Explorer</em></a><br>
+        </p>
+        <p>
+          Because these rules differ sometimes between browsers, there are efforts to promote consistency in styles across browsers.
+          One popular solution to this issue is using what is referred to as a CSS reset such as
+        </p>
+        <p>
+          <a href="https://necolas.github.io/normalize.css/"><em>Normalize.css</em></a><br>
+        </p>
+      </div>
+    </div>
+    <div class="t2">
+      <h2>Positioning Boxes</h2>
+      <div class="p">
+        <p>
+          At 01:02 in the video, Jessica uses Dev Tools to add the CSS rule display: flex to element.style,
+          which applies the CSS to the selected div element temporarily.
+          Students following along with the videos should create an .app class in their style.css as follows:<br>
+        </p>
+        <p>
+          <span class="tag">.app</span>{<br>
+          &nbsp;&nbsp;display: flex;<br>
+          }<br>
+        </p>
+        <p>
+          This rule as-is works with Chrome 29+, IE 11+, and Mozilla 28+. In order to support Safari, the -webkit- prefix must be added:<br>
+        </p>
+        <p>
+          <span class="tag">.app</span>{<br>
+          &nbsp;&nbsp;display: -webkit-flex;<br>
+          &nbsp;&nbsp;display: flex;<br>
+          }<br>
+        </p>
+      </div>
+      <div class="t3">
+        <p id="p1_picture4">
+          <img src="https://imgsa.baidu.com/forum/w%3D580/sign=fc411c044a166d223877159c76210945/b48b79d98d1001e990bb8fc0b10e7bec56e797c5.jpg" alt="Here suppose to be a picture.">
+        </p>
+        <p>
+          In developer tools you'll find a similar box to what you see on the page in the computed tab. <br>
+          Content: This is the image and text that's appearing on the website. And the other layers serve to protect it so that other items on the page either don't overlap or sit too close,
+          so that the website isn't very visually appealing.<br>
+          Padding: The Padding clears an area around the content. And it's affected by the background color of the box.
+          So you can think of it as the space inside of the box that protects the content directly.<br>
+        </p>
+        <ul>
+          <li>
+            Border: Goes around the padding and the content, and the border's inherited from the color property of the box.<br>
+          </li>
+          <li>
+            Margin: Clears an area around the border.
+          </li>
+        </ul>
+        <p>
+          It doesn't have a background color and it's completely transparent, and you can think of this as the space between boxes.<br>
+          By default, the size of your actually element is equal to the sum of the border, padding and content width.<br>
+        </p>
+        <p id="p1_picture5">
+          <img src="https://imgsa.baidu.com/forum/w%3D580/sign=1841ede964224f4a5799731b39f59044/6b9e881001e939018b8516f172ec54e734d196c5.jpg" alt="Here suppose to be a picture.">
+        </p>
+        </div>
+    </div>
+    <div class="t2">
+      <h2>Some Useful Websites</h2>
+      <div class="p">
+        <p>
+          <a href="http://scratchpad.io/guarded-part-8033"><em>Scratchpad</em></a><br>
+          <a href="http://validator.w3.org/#validate_by_input"><em>Markup Validation Service</em></a><br>
+          <a href="http://jigsaw.w3.org/css-validator/"><em>CSS-Validator</em></a><br>
+          <a href="https://en.wikipedia.org/wiki/Tree_structure"><em>Tree Structure - Wiki</em></a><br>
+          <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"><em>A Complete Guide to Flexbox</em></a>
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
