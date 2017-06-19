@@ -17,19 +17,14 @@ You mounted your broom and left.
 textOfRunes = """
 1,fehu
 A, aurochs, water, slag   B, wealth, cattle C, the god Thor, giant  D, one of the Asir (gods)
-
 2,raido
 A, ride, journey  B, ulcer (or kenaz "torch")  C, gift  D, joy
-
 3,hagalaz
 A, year, good year, harvest  B, need  C, ice  D, hail (the precipitation)
-
 4,teiwaz
 A, yew-tree  B, unclear, possibly "elk"  C, the god Tyr  D, meaning unclear, perhaps "pear-tree"
-
 5,sowilo
 A, sun  B, birch  C, horse  D, man
-
 6,laguz
 A, the god Yngvi B, water, lake C, heritage, estate, possession  D, day 
 """
@@ -61,7 +56,7 @@ This would make the Greek's estimate about twice the figure accepted today,
 a very good estimate for those writing so long before even the first telescope was invented.
 """
 textOfBonus = ["Bonus", "Do you know how to use the Marauder's Map?",
-              "When you want to let the Marauder's Map show you people's trace, you should use the spell __1__.",
+              "When you want to let the Marauder's Map show you people's trace, you should say __1__.",
               "And when you finished your spying, you should say __2__."]
 
 qusOfCharms = ["You took your wand out and said __1__.",
@@ -70,12 +65,24 @@ qusOfCharms = ["You took your wand out and said __1__.",
                "All of a sudden, you heard someone saying a curse at you in the darkness, so you shouted __4__, and the curse was rebound.",
                "The person fell down on the floor, so you approached him and accessed his mind by saying __5__.",
                "So you said __6__ to summon your broom and said __7__ to extinguish the light on the wand."]
+qusOfRunes = ["fehu","raido","hagalaz","teiwaz","sowilo","laguz","wealth, cattle","ride, journey","hail (the precipitation)","the god Tyr","Sun","water, lake"]
+qusOfDADA = ["makes the person or animal can't move like a stone",
+             "removes wand from your opponent",
+             "used to defeat Boggart",
+             "used to defeat Dementor",
+             "is an unforgivable curse, used to kill others",
+             "knocks out others"]
+qusOfAstromony = ["In ancient times, many people believed the __A__ was a flat disc.",
+                  "The second argument was based on what the __B__ saw during their travels.",
+                  """They noticed that the North Star, or __C__, appeared lower in the sky when they traveled south, in the more northerly regions, 
+                the North Star appeared to them to be much higher in the sky.""",
+                  "The earth's shadow on the __D__ was always round."]
 
-blanksOfCharms = "Alohomora,Protegos,Nox,Lumos,Legilimens,Accio Firebolt,Wingardium Leviosa"
-blanksOfRunes = '"wealth, cattle";"ride, journey";"hail" (the precipitation);"the god Tyr";"Sun";"water, lake"'
-blanksOfDADA = "Stupefy,Petrificus Totalus,Riddikulus,Avada Kedavra,Expecto Patronus,Expelliarmus"
+blanksOfCharms = "Alohomora,Lumos,Wingardium Leviosa,Protegos,Legilimens,Accio Firebolt,Nox"
+blanksOfRunes = "B,A,D,C,A,B"
+blanksOfDADA = "Petrificus Totalus,Expelliarmus,Riddikulus,Expecto Patronus,Avada Kedavra,Stupefy"
 blanksOfAstronomy = "earth,Greeks,Polaris,moon"
-blanksOfBonus = ["I solemnly swear that I am up to no good", "Mischief managed"]
+blanksOfBonus = ["I solemnly swear that I am up to no good.", "Mischief managed."]
 
 print "Ordinary Wizarding Level"
 print "Caution"
@@ -119,20 +126,27 @@ def play_game(ml_string, ansList):
 
 
 
-
-def ansJudgeStr(answer):
-    while True:
-        if answer == charmsList[i]:
-            print "Great!" + play_game(test_string, charmsList)
-            break
+# charmsList's order must be in accrod with the correct answer.
+def ansJudge(ansList):
+    ansInput = raw_input('Please fill in the first blank: ')
+    i = 0
+    while i < len(ansList)-1:
+        if ansInput == ansList[i]:
+            print "Great!"# + play_game(test_string, charmsList)
+            i += 1
+            ansInput = raw_input('Please enter your answer for the next blank: ')
         else:
             print "Good try! Try it again."
+            ansInput = raw_input('Please enter your answer again: ')
 
-
-def ansJudgeList(answer):
-    if answer == answer:
-        True
-
+    while i == len(ansList)-1:
+        if ansInput == ansList[i]:
+           print "Great!"
+           print "You have past this test!"
+           break
+        else:
+            print "Good try! Try it again."
+            ansInput = raw_input('Please enter your answer again: ')
 
 while True:
     subChoose()
@@ -143,31 +157,30 @@ while True:
         print textOfCharms
         print blanksOfCharms
         charmsList = blanksOfCharms.split(',')
-        ansOfCharms
+        print charmsList[0]
+        ansJudge(charmsList)
         print charmsList
         break
     elif subject == 2:
         print "Please choose the correct explanation for the Runes."
         print textOfRunes
         print blanksOfRunes
-        runesList = blanksOfRunes.split(';')
-        ansOfRunes
-        print runesList
+        runesList = blanksOfRunes.split(',')
+        ansJudge(runesList)
         break
     elif subject == 3:
         print "Which charm is the sentence explain for?"
         print textOfDADA
         print blanksOfDADA
         dadaList = blanksOfDADA.split(',')
-        ansOfDADA
-        print dadaList
+        ansJudge(dadaList)
         break
     elif subject == 4:
         print "Fill in the blanks."
         print textOfAstronomy
         print blanksOfAstronomy
         astronomyList = blanksOfAstronomy.split(',')
-        ansOfAstronomy
+        ansJudge(astronomyList)
         print astronomyList
         break
     elif subject == 5:
@@ -175,10 +188,8 @@ while True:
         print textOfBonus[1]
         print textOfBonus[2]
         print textOfBonus[3]
-        ansOfBonus
+        print "Hint: Don't forget period in your answer!"
+        ansJudge(blanksOfBonus)
         break
     else:
         print "Wrong input, please input again."
-
-
-ansFirst = raw_input('Please fill in the first blank:')
