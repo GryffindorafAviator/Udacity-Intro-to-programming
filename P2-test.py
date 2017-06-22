@@ -8,9 +8,9 @@ qusOfCharms = ["You took your wand out and said __1__.",
                "The person fell down on the floor, so you approached him and accessed his mind by saying __5__.",
                "So you said __6__ to summon your broom and said __7__ to extinguish the light on the wand."]
 
-ansList = qusOfCharms[0].split()
-print ansList
-print type(ansList)
+ansOfcharmList = qusOfCharms[0].split()
+print ansOfcharmList
+print type(ansOfcharmList)
 
 blanksOfCharmsList = blanksOfCharms.split()
 print blanksOfCharmsList
@@ -25,7 +25,7 @@ def word_in_pos(word, blanks):
 
 def play_game(ml_string, ansList):
     replaced = []
-    ml_string = ml_string.split()
+    # ml_string = ml_string.split()
     for word in ml_string:
         replacement = word_in_pos(word, ansList)
         if replacement != None:
@@ -36,33 +36,6 @@ def play_game(ml_string, ansList):
     return replaced
 
 
-parts_of_speech = ["PLACE", "PERSON", "PLURALNOUN", "NOUN"]
-
-test_string = """This is PLACE, no NOUN named PERSON, We have so many PLURALNOUN around here."""
 
 
-def word_in_pos(word, parts_of_speech):
-    for pos in parts_of_speech:
-        if pos in word:
-            print word
-            print pos
-            return pos
-    return None
-
-
-def play_game(ml_string, parts_of_speech):
-    replaced = []
-    # your code here
-    ml_string = ml_string.split()
-    for word in ml_string:
-        print word
-        replacement = word_in_pos(word, parts_of_speech)
-        if replacement != None:
-            replaced.append("corgi,")
-        else:
-            replaced.append(word)
-    replaced = " ".join(replaced)
-    return replaced
-
-
-print play_game(test_string, parts_of_speech)
+print play_game(ansOfcharmList, partsOfQusCharms) #ansList is __1__, ml_string is ansOfcharmList
