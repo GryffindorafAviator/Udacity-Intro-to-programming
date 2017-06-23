@@ -61,10 +61,10 @@ textOfBonus = ["Bonus", "Do you know how to use the Marauder's Map?",
 
 qusOfCharms = ["You took your wand out and said __1__.",
                "In the darkness, you said __2__ and the wand was lit up.",
-               "So you pointed it with your wand, saying __3__, and suddenly it floated up in the air. It was a flying broom.",
-               "All of a sudden, you heard someone saying a curse at you in the darkness, so you shouted __4__, and the curse was rebound.",
+               "So you pointed it with your wand, saying __3__ and suddenly it floated up in the air. It was a flying broom.",
+               "All of a sudden, you heard someone saying a curse at you in the darkness, so you shouted __4__ and the curse was rebound.",
                "The person fell down on the floor, so you approached him and accessed his mind by saying __5__.",
-               "So you said __6__ to summon your broom and said __7__ to extinguish the light on the wand."]
+               "So you said __6__ to summon your broom", "and said __7__ to extinguish the light on the wand."]
 qusOfRunes = ["fehu","raido","hagalaz","teiwaz","sowilo","laguz","wealth, cattle","ride, journey","hail (the precipitation)","the god Tyr","Sun","water, lake"]
 qusOfDADA = ["makes the person or animal can't move like a stone",
              "removes wand from your opponent",
@@ -77,7 +77,7 @@ qusOfAstromony = ["In ancient times, many people believed the __A__ was a flat d
                   """They noticed that the North Star, or __C__, appeared lower in the sky when they traveled south, in the more northerly regions, 
                 the North Star appeared to them to be much higher in the sky.""",
                   "The earth's shadow on the __D__ was always round."]
-
+partsOfQusCharms = ["__1__", "__2__", "__3__", "__4__", "__5__", "__6__", "__7__"]
 blanksOfCharms = "Alohomora,Lumos,Wingardium Leviosa,Protegos,Legilimens,Accio Firebolt,Nox"
 blanksOfRunes = "B,A,D,C,A,B"
 blanksOfDADA = "Petrificus Totalus,Expelliarmus,Riddikulus,Expecto Patronus,Avada Kedavra,Stupefy"
@@ -98,41 +98,35 @@ def subChoose():
     print "4, Astronomy"
     print "5, Bonus"
 
-
-
-test_string = """This is PLACE, no NOUN named PERSON, We have so many PLURALNOUN around here."""
-
-
-def word_in_pos(word, ansList):
-    for pos in ansList:
+def word_in_pos(word, blanks):
+    for pos in blanks:
         if pos in word:
             return pos
     return None
 
-
-def play_game(ml_string, ansList):
+def play_game(ml_string, blanks, replaceWords):
     replaced = []
-    # your code here
-    ml_string = ml_string.split()
+    # ml_string = ml_string.split()
     for word in ml_string:
-        replacement = word_in_pos(word, ansList)
+        replacement = word_in_pos(word, blanks)
         if replacement != None:
-            replaced.append("corgi,")
+            replaced.append(replaceWords)
         else:
             replaced.append(word)
     replaced = " ".join(replaced)
     return replaced
 
-
-
-
 # charmsList's order must be in accrod with the correct answer.
-def ansJudge(ansList):
+def ansJudge(ansList,ml_string, blanks, replaceWords):
     ansInput = raw_input('Please fill in the first blank: ')
     i = 0
+    charmsList = blanksOfCharms.split(',')
+
     while i < len(ansList)-1:
+        textList = qusOfCharms[i].split()
+        ansJudge(charmsList, textList, partsOfQusCharms[i], charmsList[i])
         if ansInput == ansList[i]:
-            print "Great!"# + play_game(test_string, charmsList)
+            print "Great!" + play_game(ml_string, blanks, replaceWords)
             i += 1
             ansInput = raw_input('Please enter your answer for the next blank: ')
         else:
@@ -140,6 +134,8 @@ def ansJudge(ansList):
             ansInput = raw_input('Please enter your answer again: ')
 
     while i == len(ansList)-1:
+        textList = qusOfCharms[i].split()
+        ansJudge(charmsList, textList, partsOfQusCharms[i], charmsList[i])
         if ansInput == ansList[i]:
            print "Great!"
            print "You have past this test!"
@@ -156,10 +152,6 @@ while True:
         print "Fill in the blanks with the appropriate charms."
         print textOfCharms
         print blanksOfCharms
-        charmsList = blanksOfCharms.split(',')
-        print charmsList[0]
-        ansJudge(charmsList)
-        print charmsList
         break
     elif subject == 2:
         print "Please choose the correct explanation for the Runes."
