@@ -59,11 +59,11 @@ textOfBonus = ["Bonus", "Do you know how to use the Marauder's Map?",
               "When you want to let the Marauder's Map show you people's trace, you should say __1__.",
               "And when you finished your spying, you should say __2__."]
 
-qusOfCharms = ["You took your wand out and said __1__.",
+qusOfCharms = ["You took your wand out and said __1__ .",
                "In the darkness, you said __2__ and the wand was lit up.",
                "So you pointed it with your wand, saying __3__ and suddenly it floated up in the air. It was a flying broom.",
                "All of a sudden, you heard someone saying a curse at you in the darkness, so you shouted __4__ and the curse was rebound.",
-               "The person fell down on the floor, so you approached him and accessed his mind by saying __5__.",
+               "The person fell down on the floor, so you approached him and accessed his mind by saying __5__ .",
                "So you said __6__ to summon your broom", "and said __7__ to extinguish the light on the wand."]
 qusOfRunes = ["fehu","raido","hagalaz","teiwaz","sowilo","laguz","wealth, cattle","ride, journey","hail (the precipitation)","the god Tyr","Sun","water, lake"]
 qusOfDADA = ["makes the person or animal can't move like a stone",
@@ -74,15 +74,16 @@ qusOfDADA = ["makes the person or animal can't move like a stone",
              "knocks out others"]
 qusOfAstromony = ["In ancient times, many people believed the __A__ was a flat disc.",
                   "The second argument was based on what the __B__ saw during their travels.",
-                  """They noticed that the North Star, or __C__, appeared lower in the sky when they traveled south, in the more northerly regions, 
+                  """They noticed that the North Star, or __C__ , appeared lower in the sky when they traveled south, in the more northerly regions, 
                 the North Star appeared to them to be much higher in the sky.""",
                   "The earth's shadow on the __D__ was always round."]
-partsOfQusCharms = ["__1__", "__2__", "__3__", "__4__", "__5__", "__6__", "__7__"]
-blanksOfCharms = "Alohomora,Lumos,Wingardium Leviosa,Protegos,Legilimens,Accio Firebolt,Nox"
-blanksOfRunes = "B,A,D,C,A,B"
-blanksOfDADA = "Petrificus Totalus,Expelliarmus,Riddikulus,Expecto Patronus,Avada Kedavra,Stupefy"
-blanksOfAstronomy = "earth,Greeks,Polaris,moon"
-blanksOfBonus = ["I solemnly swear that I am up to no good.", "Mischief managed."]
+blanksNum = ["__1__", "__2__", "__3__", "__4__", "__5__", "__6__", "__7__"]
+blanksAlp = ['__A__', '__B__', '__C__', '__D__']
+charmsStr = "Alohomora,Lumos,Wingardium Leviosa,Protegos,Legilimens,Accio Firebolt,Nox"
+runesStr = "B,A,D,C,A,B"
+dadaStr = "Petrificus Totalus,Expelliarmus,Riddikulus,Expecto Patronus,Avada Kedavra,Stupefy"
+astronomyStr = "earth,Greeks,Polaris,moon"
+bonusList = ["I solemnly swear that I am up to no good.", "Mischief managed."]
 
 print "Ordinary Wizarding Level"
 print "Caution"
@@ -104,29 +105,27 @@ def word_in_pos(word, blanks):
             return pos
     return None
 
-def play_game(ml_string, blanks, replaceWords):
+def play_game(ml_string, ansList, subList, i):
+    ml_stringList = ml_string[i].split()
     replaced = []
-    # ml_string = ml_string.split()
-    for word in ml_string:
-        replacement = word_in_pos(word, blanks)
+    for word in ml_stringList:
+        replacement = word_in_pos(word, ansList)
         if replacement != None:
-            replaced.append(replaceWords)
+            replaced.append(subList[i])
         else:
             replaced.append(word)
     replaced = " ".join(replaced)
     return replaced
 
-# charmsList's order must be in accrod with the correct answer.
-def ansJudge(ansList,ml_string, blanks, replaceWords):
+# charmsList's order must be in accord with the correct answer.
+def ansJudge(ansList, ml_string, blanksList, i):
     ansInput = raw_input('Please fill in the first blank: ')
     i = 0
-    charmsList = blanksOfCharms.split(',')
+    ansList = charmsStr.split(',')
 
     while i < len(ansList)-1:
-        textList = qusOfCharms[i].split()
-        ansJudge(charmsList, textList, partsOfQusCharms[i], charmsList[i])
         if ansInput == ansList[i]:
-            print "Great!" + play_game(ml_string, blanks, replaceWords)
+            print "Great! " + play_game(ml_string, blanksList, ansList, i)
             i += 1
             ansInput = raw_input('Please enter your answer for the next blank: ')
         else:
@@ -134,10 +133,8 @@ def ansJudge(ansList,ml_string, blanks, replaceWords):
             ansInput = raw_input('Please enter your answer again: ')
 
     while i == len(ansList)-1:
-        textList = qusOfCharms[i].split()
-        ansJudge(charmsList, textList, partsOfQusCharms[i], charmsList[i])
         if ansInput == ansList[i]:
-           print "Great!"
+           print "Great! " + play_game(ml_string, blanksList, ansList, i)
            print "You have past this test!"
            break
         else:
@@ -151,37 +148,42 @@ while True:
     if subject == 1:
         print "Fill in the blanks with the appropriate charms."
         print textOfCharms
-        print blanksOfCharms
+        print charmsStr
+        charmsList = charmsStr.split(',')
+        print "Hint: Notice the uppercase and lowercase!"
+        ansJudge(charmsList, qusOfCharms, blanksNum, 0)
         break
     elif subject == 2:
         print "Please choose the correct explanation for the Runes."
         print textOfRunes
-        print blanksOfRunes
-        runesList = blanksOfRunes.split(',')
+        print runesStr
+        runesList = runesStr.split(',')
+        print "Hint: The letter of answer should be uppercase!"
         ansJudge(runesList)
         break
     elif subject == 3:
         print "Which charm is the sentence explain for?"
         print textOfDADA
-        print blanksOfDADA
-        dadaList = blanksOfDADA.split(',')
+        print dadaStr
+        dadaList = dadaStr.split(',')
+        print "Hint: Notice the uppercase and lowercase!"
         ansJudge(dadaList)
         break
     elif subject == 4:
         print "Fill in the blanks."
         print textOfAstronomy
-        print blanksOfAstronomy
-        astronomyList = blanksOfAstronomy.split(',')
-        ansJudge(astronomyList)
-        print astronomyList
+        print astronomyStr
+        print "Hint: Notice the uppercase and lowercase!"
+        astronomyList = astronomyStr.split(',')
+        ansJudge(astronomyList, qusOfAstromony, blanksAlp, 0)
         break
     elif subject == 5:
         print textOfBonus[0]
         print textOfBonus[1]
         print textOfBonus[2]
         print textOfBonus[3]
-        print "Hint: Don't forget period in your answer!"
-        ansJudge(blanksOfBonus)
+        print "Hint: Don't forget the period in your answer!"
+        ansJudge(bonusList)
         break
     else:
         print "Wrong input, please input again."
