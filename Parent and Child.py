@@ -1,8 +1,8 @@
 class Parent():
-    def __init__(self, last_name, eye_color):
+    def __init__(self, last_name1, eye_color1):
         print("Parent constructor called")
-        self.last_name = last_name
-        self.eye_color = eye_color
+        self.last_name = last_name1
+        self.eye_color = eye_color1
         
 class Child(Parent):
     def __init__(self, last_name, eye_color, number_of_toys):
