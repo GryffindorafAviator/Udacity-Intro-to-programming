@@ -121,7 +121,6 @@ def play_game(ml_string, ansList, subList, i):
 def ansJudge(ansList, ml_string, blanksList, i):
     ansInput = raw_input('Please fill in the first blank: ')
     i = 0
-    ansList = charmsStr.split(',')
 
     while i < len(ansList)-1:
         if ansInput == ansList[i]:
@@ -138,7 +137,7 @@ def ansJudge(ansList, ml_string, blanksList, i):
            print "You have past this test!"
            break
         else:
-            print "Good try! Try it again."
+            print "Nice try, but please try again."
             ansInput = raw_input('Please enter your answer again: ')
 
 while True:
@@ -175,6 +174,7 @@ while True:
         print astronomyStr
         print "Hint: Notice the uppercase and lowercase!"
         astronomyList = astronomyStr.split(',')
+        print astronomyList
         ansJudge(astronomyList, qusOfAstromony, blanksAlp, 0)
         break
     elif subject == 5:
