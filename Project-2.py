@@ -1,3 +1,11 @@
+
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Jul  6 19:32:06 2017
+
+@author: flash_pilot
+"""
+
 textOfCharms = """
 You were standing in front of an ancient house.
 The house was empty and the door was locked.
@@ -14,6 +22,7 @@ You realized he was a Death Eater and fighting him would be a losing game.
 So you said __6__ to summon your broom and said __7__ to extinguish the light on the wand.
 You mounted your broom and left.
 """
+
 textOfRunes = """
 1,fehu
 A, aurochs, water, slag   B, wealth, cattle C, the god Thor, giant  D, one of the Asir (gods)
@@ -28,6 +37,7 @@ A, sun  B, birch  C, horse  D, man
 6,laguz
 A, the god Yngvi B, water, lake C, heritage, estate, possession  D, day 
 """
+
 textOfDADA = """
 1, Makes the person or animal can't move like a stone.
 2, Remove wand from your opponent.
@@ -36,6 +46,7 @@ textOfDADA = """
 5, Unforgivable curse, kill others.
 6, Knock out others. 
 """
+
 textOfAstronomy = """
 In ancient times, many people believed the __A__ was a flat disc. 
 Well over 2,000 years ago, the ancient Greek philosophers were able to put forward two good arguments proving that it was not. 
@@ -55,9 +66,10 @@ but let's say it was about 200 meters, the length of many athletic stadiums.
 This would make the Greek's estimate about twice the figure accepted today, 
 a very good estimate for those writing so long before even the first telescope was invented.
 """
+
 textOfBonus = ["Bonus", "Do you know how to use the Marauder's Map?",
-              "When you want to let the Marauder's Map show you people's trace, you should say __1__.",
-              "And when you finished your spying, you should say __2__."]
+              "When you want to let the Marauder's Map show you people's trace, you should say: __1__.",
+              "And when you finished your spying, you should say: __2__."]
 
 qusOfCharms = ["You took your wand out and said __1__ .",
                "In the darkness, you said __2__ and the wand was lit up.",
@@ -65,24 +77,40 @@ qusOfCharms = ["You took your wand out and said __1__ .",
                "All of a sudden, you heard someone saying a curse at you in the darkness, so you shouted __4__ and the curse was rebound.",
                "The person fell down on the floor, so you approached him and accessed his mind by saying __5__ .",
                "So you said __6__ to summon your broom", "and said __7__ to extinguish the light on the wand."]
-qusOfRunes = ["fehu","raido","hagalaz","teiwaz","sowilo","laguz","wealth, cattle","ride, journey","hail (the precipitation)","the god Tyr","Sun","water, lake"]
+
+qusOfRunes = ["fehu","raido","hagalaz","teiwaz","sowilo","laguz"]
+
 qusOfDADA = ["makes the person or animal can't move like a stone",
              "removes wand from your opponent",
              "used to defeat Boggart",
              "used to defeat Dementor",
              "is an unforgivable curse, used to kill others",
              "knocks out others"]
+
 qusOfAstromony = ["In ancient times, many people believed the __A__ was a flat disc.",
                   "The second argument was based on what the __B__ saw during their travels.",
                   """They noticed that the North Star, or __C__ , appeared lower in the sky when they traveled south, in the more northerly regions, 
                 the North Star appeared to them to be much higher in the sky.""",
                   "The earth's shadow on the __D__ was always round."]
+
+qusOfBonus = [textOfBonus[2], textOfBonus[3]]
+
 blanksNum = ["__1__", "__2__", "__3__", "__4__", "__5__", "__6__", "__7__"]
+
+blanksRunes = ['wealth, cattle', 'ride, journey', 'hail (the precipitation)', 'the god Tyr', 'sun', 'water, lake']
+
 blanksAlp = ['__A__', '__B__', '__C__', '__D__']
+
+blanksBonus = ['__1__', '__2__']
+
 charmsStr = "Alohomora,Lumos,Wingardium Leviosa,Protegos,Legilimens,Accio Firebolt,Nox"
+
 runesStr = "B,A,D,C,A,B"
+
 dadaStr = "Petrificus Totalus,Expelliarmus,Riddikulus,Expecto Patronus,Avada Kedavra,Stupefy"
+
 astronomyStr = "earth,Greeks,Polaris,moon"
+
 bonusList = ["I solemnly swear that I am up to no good.", "Mischief managed."]
 
 print "Ordinary Wizarding Level"
@@ -122,16 +150,16 @@ def ansJudge(ansList, ml_string, blanksList, i):
     ansInput = raw_input('Please fill in the first blank: ')
     i = 0
 
-    while i < len(ansList)-1:
+    while i < len(ansList) - 1:
         if ansInput == ansList[i]:
             print "Great! " + play_game(ml_string, blanksList, ansList, i)
             i += 1
             ansInput = raw_input('Please enter your answer for the next blank: ')
         else:
-            print "Good try! Try it again."
+            print "Nice try, but please try it again."
             ansInput = raw_input('Please enter your answer again: ')
 
-    while i == len(ansList)-1:
+    while i == len(ansList) - 1:
         if ansInput == ansList[i]:
            print "Great! " + play_game(ml_string, blanksList, ansList, i)
            print "You have past this test!"
@@ -139,6 +167,54 @@ def ansJudge(ansList, ml_string, blanksList, i):
         else:
             print "Nice try, but please try again."
             ansInput = raw_input('Please enter your answer again: ')
+
+def ansJudgeRunes(ml_string, qusList, ansList, i):
+    ansInput = raw_input('Please fill in the first blank: ')
+    ml_stringList = ml_string.split(',')
+    i = 0
+
+    while i < len(ml_stringList) - 1:
+        if ansInput == ml_stringList[i]:
+            print"Great! The meaning of " + qusList[i] + " is: " + ansList[i]
+            i += 1
+            ansInput = raw_input('Please enter your answer for the next blank: ')
+        else:
+            print "Nice try, but please try it again."
+            ansInput = raw_input('Please enter your answer again: ')
+
+    while i == len(ml_stringList) - 1:
+        if ansInput == ml_stringList[i]:
+            print"Great! The meaning of " + qusList[i] + " is: " + ansList[i]
+            print "You have past this test!"
+            break
+        else:
+            print "Nice try, but please try again."
+            ansInput = raw_input('Please enter your answer again: ')
+
+def ansJudgeDada(ml_string, qusList, i):
+    ansInput = raw_input('Please fill in the first blank: ')
+    ml_stringList = ml_string.split(',')
+    i = 0
+
+    while i < len(ml_stringList) - 1:
+        if ansInput == ml_stringList[i]:
+            print"Great! The charm " + qusList[i] + " is " + ml_stringList[i] + '.'
+            i += 1
+            ansInput = raw_input('Please enter your answer for the next blank: ')
+        else:
+            print "Nice try, but please try it again."
+            ansInput = raw_input('Please enter your answer again: ')
+
+    while i == len(ml_stringList) - 1:
+        if ansInput == ml_stringList[i]:
+            print"Great! The charm " + qusList[i] + " is " + ml_stringList[i] + '.'
+            print "You have past this test!"
+            break
+        else:
+            print "Nice try, but please try again."
+            ansInput = raw_input('Please enter your answer again: ')
+
+
 
 while True:
     subChoose()
@@ -158,7 +234,7 @@ while True:
         print runesStr
         runesList = runesStr.split(',')
         print "Hint: The letter of answer should be uppercase!"
-        ansJudge(runesList)
+        ansJudgeRunes(runesStr, qusOfRunes, blanksRunes, 0)
         break
     elif subject == 3:
         print "Which charm is the sentence explain for?"
@@ -166,7 +242,7 @@ while True:
         print dadaStr
         dadaList = dadaStr.split(',')
         print "Hint: Notice the uppercase and lowercase!"
-        ansJudge(dadaList)
+        ansJudgeDada(dadaStr, qusOfDADA, 0)
         break
     elif subject == 4:
         print "Fill in the blanks."
@@ -183,7 +259,8 @@ while True:
         print textOfBonus[2]
         print textOfBonus[3]
         print "Hint: Don't forget the period in your answer!"
-        ansJudge(bonusList)
+        print qusOfBonus
+        ansJudge(bonusList, qusOfBonus, blanksBonus, 0)
         break
     else:
         print "Wrong input, please input again."
