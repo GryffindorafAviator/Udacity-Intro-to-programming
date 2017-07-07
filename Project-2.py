@@ -113,35 +113,37 @@ astronomyStr = "earth,Greeks,Polaris,moon"
 
 bonusList = ["I solemnly swear that I am up to no good.", "Mischief managed."]
 
-print "Ordinary Wizarding Level"
-print "Caution"
-print "This test is protected by Anti - Cheating Spell"
-
-print"Please Choose Subject"
-
-def randomOutput(ml_string):
-    ml_stringList = ml_string.split()
-    lenMl = len(ml_stringList) - 1
-    i = 0
-    while i < lenMl:
-        randNum = random.randint(0, lenMl)
-        print ml_stringList[randNum]
-        i += 1
-
 def subChoose():
+    """Choose your test subject."""
+
+    print "Please Choose Subject"
+    print ''
     print "1, Carms"
     print "2, Runes"
     print "3, Defence Against Dark Arts"
     print "4, Astronomy"
     print "5, Bonus"
 
+def randomOutput(ml_string):
+    """Print out the answer list in a random order."""
+
+    ml_stringList = ml_string.split(',')
+    lenMl = len(ml_stringList)
+    randSample = random.sample(ml_stringList, lenMl)
+    randList = ','.join(randSample)
+    return randList
+
 def word_in_pos(word, blanks):
+    """Used to find the blank in the string."""
+
     for pos in blanks:
         if pos in word:
             return pos
     return None
 
 def play_game(ml_string, ansList, subList, i):
+    """Used to replace the blank with the answer."""
+
     ml_stringList = ml_string[i].split()
     replaced = []
     for word in ml_stringList:
@@ -153,8 +155,9 @@ def play_game(ml_string, ansList, subList, i):
     replaced = " ".join(replaced)
     return replaced
 
-# charmsList's order must be in accord with the correct answer.
 def ansJudge(ansList, ml_string, blanksList, i):
+    """Judge the answer of fill in the blank question."""
+
     ansInput = raw_input('Please fill in the first blank: ')
     i = 0
 
@@ -177,6 +180,8 @@ def ansJudge(ansList, ml_string, blanksList, i):
             ansInput = raw_input('Please enter your answer again: ')
 
 def ansJudgeRunes(ml_string, qusList, ansList, i):
+    """Judge the answer in choice question of Runes."""
+
     ansInput = raw_input('Please fill in the first blank: ')
     ml_stringList = ml_string.split(',')
     i = 0
@@ -200,6 +205,8 @@ def ansJudgeRunes(ml_string, qusList, ansList, i):
             ansInput = raw_input('Please enter your answer again: ')
 
 def ansJudgeDada(ml_string, qusList, i):
+    """Judge the answer in choice question of DADA."""
+
     ansInput = raw_input('Please fill in the first blank: ')
     ml_stringList = ml_string.split(',')
     i = 0
@@ -222,51 +229,154 @@ def ansJudgeDada(ml_string, qusList, i):
             print "Nice try, but please try again."
             ansInput = raw_input('Please enter your answer again: ')
 
+def toDoOrNotToDo(i):
+    """To determine whether you have finished all the tests."""
+    print ''
+    print 'Do you want to finish the rest of the test?'
+    choice = raw_input('Please enter Y or N.')
+    print ''
+    return choice
+
+
+print "#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-"
+print "#                 Ordinary Wizarding Level                 #"
+print "#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-"
+print ''
+print "######                   Caution                       #####"
+print ''
+print "###  This test is protected by Anti - Cheating Spell     ###"
+print ''
+
+i = 0
+
 while True:
     subChoose()
     subject = input()
 
     if subject == 1:
-        print "Fill in the blanks with the appropriate charms."
-        print textOfCharms
-        print charmsStr
-        charmsList = charmsStr.split(',')
-        print "Hint: Notice the uppercase and lowercase!"
-        ansJudge(charmsList, qusOfCharms, blanksNum, 0)
-        break
+        if i == 5:
+            print 'Congratulations! You have finished all the tests!'
+            break
+        else:
+            print ''
+            print "Fill in the blanks with the appropriate charms."
+            print textOfCharms
+            print ''
+            print "You may choose your answer from the following list:"
+            print randomOutput(charmsStr)
+            charmsList = charmsStr.split(',')
+            print ''
+            print "Hint: Notice the uppercase and lowercase!"
+            print ''
+            ansJudge(charmsList, qusOfCharms, blanksNum, 0)
+            print ''
+            if toDoOrNotToDo(i) == 'Y':
+                i += 1
+                print ''
+                continue
+            else:
+                print ''
+                print "See you!"
+                break
+
     elif subject == 2:
-        print "Please choose the correct explanation for the Runes."
-        print textOfRunes
-        print runesStr
-        runesList = runesStr.split(',')
-        print "Hint: The letter of answer should be uppercase!"
-        ansJudgeRunes(runesStr, qusOfRunes, blanksRunes, 0)
-        break
+        if i == 5:
+            print 'Congratulations! You have finished all the tests!'
+            break
+        else:
+            print ''
+            print "Please choose the correct explanation for the Runes."
+            print textOfRunes
+            runesList = runesStr.split(',')
+            print ''
+            print "Hint: The letter of answer should be uppercase!"
+            print ''
+            ansJudgeRunes(runesStr, qusOfRunes, blanksRunes, 0)
+            print ''
+            if toDoOrNotToDo(i) == 'Y':
+                i += 1
+                print ''
+                continue
+            else:
+                print ''
+                print "See you!"
+                break
+
     elif subject == 3:
-        print "Which charm is the sentence explain for?"
-        print textOfDADA
-        print dadaStr
-        dadaList = dadaStr.split(',')
-        print "Hint: Notice the uppercase and lowercase!"
-        ansJudgeDada(dadaStr, qusOfDADA, 0)
-        break
+        if i == 5:
+            print 'Congratulations! You have finished all the tests!'
+            break
+        else:
+            print ''
+            print "Which charm is the sentence explain for?"
+            print textOfDADA
+            print ''
+            print "You may choose your answer from the following list:"
+            print randomOutput(dadaStr)
+            dadaList = dadaStr.split(',')
+            print ''
+            print "Hint: Notice the uppercase and lowercase!"
+            print ''
+            ansJudgeDada(dadaStr, qusOfDADA, 0)
+            print ''
+            if toDoOrNotToDo(i) == 'Y':
+                i += 1
+                print ''
+                continue
+            else:
+                print ''
+                print "See you!"
+                break
+
     elif subject == 4:
-        print "Fill in the blanks."
-        print textOfAstronomy
-        print astronomyStr
-        print "Hint: Notice the uppercase and lowercase!"
-        astronomyList = astronomyStr.split(',')
-        print astronomyList
-        ansJudge(astronomyList, qusOfAstromony, blanksAlp, 0)
-        break
+        if i == 5:
+            print 'Congratulations! You have finished all the tests!'
+            break
+        else:
+            print ''
+            print "Fill in the blanks."
+            print textOfAstronomy
+            print ''
+            print "You may choose your answer from the following list:"
+            print randomOutput(astronomyStr)
+            print ''
+            print "Hint: Notice the uppercase and lowercase!"
+            print ''
+            astronomyList = astronomyStr.split(',')
+            ansJudge(astronomyList, qusOfAstromony, blanksAlp, 0)
+            print ''
+            if toDoOrNotToDo(i) == 'Y':
+                i += 1
+                print ''
+                continue
+            else:
+                print ''
+                print "See you!"
+                break
+
     elif subject == 5:
-        print textOfBonus[0]
-        print textOfBonus[1]
-        print textOfBonus[2]
-        print textOfBonus[3]
-        print "Hint: Don't forget the period in your answer!"
-        print qusOfBonus
-        ansJudge(bonusList, qusOfBonus, blanksBonus, 0)
-        break
+        if i == 5:
+            print 'Congratulations! You have finished all the tests!'
+            break
+        else:
+            print ''
+            print textOfBonus[0]
+            print textOfBonus[1]
+            print textOfBonus[2]
+            print textOfBonus[3]
+            print ''
+            print "Hint: Don't forget the period in your answer!"
+            print ''
+            ansJudge(bonusList, qusOfBonus, blanksBonus, 0)
+            print ''
+            if toDoOrNotToDo(i) == 'Y':
+                i += 1
+                print ''
+                continue
+            else:
+                print ''
+                print "See you!"
+                break
+
     else:
         print "Wrong input, please input again."
