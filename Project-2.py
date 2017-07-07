@@ -1,10 +1,10 @@
-
 # -*- coding: utf-8 -*-
 """
 Created on Thu Jul  6 19:32:06 2017
-
 @author: flash_pilot
 """
+
+import random
 
 textOfCharms = """
 You were standing in front of an ancient house.
@@ -119,6 +119,14 @@ print "This test is protected by Anti - Cheating Spell"
 
 print"Please Choose Subject"
 
+def randomOutput(ml_string):
+    ml_stringList = ml_string.split()
+    lenMl = len(ml_stringList) - 1
+    i = 0
+    while i < lenMl:
+        randNum = random.randint(0, lenMl)
+        print ml_stringList[randNum]
+        i += 1
 
 def subChoose():
     print "1, Carms"
@@ -213,8 +221,6 @@ def ansJudgeDada(ml_string, qusList, i):
         else:
             print "Nice try, but please try again."
             ansInput = raw_input('Please enter your answer again: ')
-
-
 
 while True:
     subChoose()
