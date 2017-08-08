@@ -11,6 +11,11 @@
 import media
 import fresh_tomatoes
 
+#class media defined these attributes belong to Movie and TV_show.
+#class fresh_tomatoes is used to create an HTML file.
+
+#define variables for movies
+
 sorcerers_stone = media.Movie("Harry Potter and the Sorcerer's Stone (2001)",
                               "Rescued from the outrageous neglect of his aunt and uncle, a young boy with a great destiny proves his worth while attending Hogwarts School of Witchcraft and Wizardry.",
                               "https://cn-discussions.s3.cn-north-1.amazonaws.com.cn/optimized/3X/a/5/a58765ca101c2bbe46226972d72db96f230a1b5e_1_337x500.jpg",
