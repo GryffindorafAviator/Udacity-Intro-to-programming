@@ -1,14 +1,10 @@
-# Lesson 3.4: Make Classes
-# Mini-Project: Movies Website
-
-# In this file, you will define the class Movie. You could do this
-# directly in entertainment_center.py but many developers keep their
-# class definitions separate from the rest of their code. This also
-# gives you practice importing Python files.
-
 import webbrowser
+# To import class webbrowser is to open a web browser to play the trailer of the movie or the TV show.
 
 class Video():
+    """
+    This class used to define these common attributes belong to both class Movie and class TV_show.
+    """
     def __init__(self, title, storyline, poster_image, trailer_youtube):
         print("Video constructor called")
         self.title = title
@@ -17,7 +13,10 @@ class Video():
         self.trailer_youtube_url = trailer_youtube
 
 class Movie(Video):
-    # This class provides a way to store movie related information
+    """
+    This class used to define these attributes only belong to class Movie.
+    This class provides a way to store movie related information.
+    """
 
     VALID_RATINGS = ["G", "PG", "PG-13", "R"]
 
@@ -30,7 +29,10 @@ class Movie(Video):
         webbrowser.open(self.trailer_youtube_url)
 
 class TV_show(Video):
-    # This class provides a way to store TV_show related information
+    """
+    This class used to define these attributes only belong to class TV_show.
+    This class provides a way to store TV_show related information.
+    """
 
     def __init__(self, title, storyline, poster_image_url, trailer_youtube_url, information):
         Video.__init__(self, title, storyline, poster_image_url, trailer_youtube_url)
